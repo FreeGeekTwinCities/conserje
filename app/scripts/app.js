@@ -6,7 +6,9 @@ angular.module('conserjeApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'ui.select2'
+  'ui.select2',
+  'ui.mask',
+  'ui.validate'
 ])
   .config(function ($routeProvider) {
     $routeProvider

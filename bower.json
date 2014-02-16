@@ -13,7 +13,8 @@
     "angular-sanitize": "1.2.12",
     "angular-route": "1.2.12",
     "angular-bootstrap": "~0.10.0",
-    "angular-ui-select2": "~0.0.5"
+    "angular-ui-select2": "~0.0.5",
+    "angular-ui-utils": "bower"
   },
   "devDependencies": {
     "angular-mocks": "1.2.12",

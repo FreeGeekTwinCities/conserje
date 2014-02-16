@@ -6,7 +6,7 @@
     <!-- NAME -->
     <div id="name-group" class="form-group">
         <label>Volunteer's Full Name</label>
-        <input type="text" name="volunteerName" class="form-control" placeholder="Buster Bot" ng-model="formData.name">
+        <input type="text" name="volunteerName" class="form-control" placeholder="Buster Bot" ng-model="formData.name" required>
         <span class="help-block"></span>
     </div>
 
@@ -17,6 +17,12 @@
         <span class="help-block"></span>
     </div>
 
+    <div id="phone-group" class="form-group">
+        <label>Phone</label>
+        <input type="tel" name="volunteerPhone" class="form-control" ui-mask="{{'(999) 999-9999'}}" ng-model="formData.phone">
+        <span class="help-block"></span>
+    </div>
+    
     <!-- SUBMIT BUTTON -->
     <button type="submit" class="btn btn-success btn-lg btn-block">
         <span class="glyphicon glyphicon-ok-circle"></span> Sign Up
