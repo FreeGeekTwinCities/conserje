@@ -77,3 +77,11 @@ body {
     border-bottom: 0;
   }
 }
+
+.volunteer {
+  padding: 10px;
+}
+
+.volunteer img {
+  padding: 5px;
+}

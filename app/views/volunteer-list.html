@@ -1,0 +1,10 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><a ng-href="#">Home</a></li>
+    <li class="active"><a ng-href="#">Timesheets</a></li>
+  </ul>
+  <h3 class="text-muted">conserje</h3>
+</div>
+
+
+<div class="col-md-4 volunteer" ng-repeat="volunteer in volunteers"><img src="data:image/png;base64,{{ volunteer.image_small }}">{{volunteer.name}}</div>

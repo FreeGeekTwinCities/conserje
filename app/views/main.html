@@ -1,36 +1,27 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
+    <li><a ng-href="#/new-volunteer">New Volunteer</a></li>
+    <li><a ng-href="#/volunteer-list">All Volunteers</a></li>
   </ul>
-  <h3 class="text-muted">conserje</h3>
+  <img style="float:left;" width="48px" src="images/fgtc-logo.png"><h3 class="text-muted">conserje</h3>
 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<div class="row">
+    <h2>Welcome to Free Geek Twin Cities!</h2>
+    Please sign in...
+    <select ui-select2 ng-model="select2" data-placeholder="Your Name Here">
+      <option ng-repeat="volunteer in volunteers" value="{{volunteer.id}}">{{volunteer.name}}</option>
+    </select>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<hr>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="row">
+  <h3>Currently Volunteering</h2>
+  <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers">{{volunteer.name}}</div>
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>Made by <a href="http://github.com/bdunnette" target="_blank">bdunnette</a>, with thanks to <a href="http://github.com/githagman" target="_blank">githagman</a> and <a href="http://github.com/zzolo" target="_blank">zzolo</a></p>
 </div>
