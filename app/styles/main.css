@@ -85,3 +85,8 @@ body {
 .volunteer img {
   padding: 5px;
 }
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 600px
+}

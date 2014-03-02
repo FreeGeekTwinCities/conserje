@@ -1,8 +1,8 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#/new-volunteer">New Volunteer</a></li>
-    <li><a ng-href="#/volunteer-list">All Volunteers</a></li>
+    <li><a ng-href="#/volunteer/new">New Volunteer</a></li>
+    <li><a ng-href="#/volunteers">All Volunteers</a></li>
   </ul>
   <img style="float:left;" width="48px" src="images/fgtc-logo.png"><h3 class="text-muted">conserje</h3>
 </div>
@@ -10,9 +10,14 @@
 <div class="row">
     <h2>Welcome to Free Geek Twin Cities!</h2>
     Please sign in...
-    <select ui-select2 ng-model="select2" data-placeholder="Your Name Here">
+  <select ui-select2 ng-model="select2" data-placeholder="Your Name Here" style="width:40%;">
       <option ng-repeat="volunteer in volunteers" value="{{volunteer.id}}">{{volunteer.name}}</option>
     </select>
+  <h3>What will you be working on?</h3>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary" name="department" btn-radio="'{{department.id}}'" ng-repeat="department in departments">{{department.name}}</button>
+  </div>
+  <button ng-click="signIn()">Sign In</button>
 </div>
 
 <hr>

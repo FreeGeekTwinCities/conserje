@@ -8,10 +8,10 @@ angular.module('conserjeApp')
         $scope.volunteers = volunteers;
     });
     
-    var Timesheet = $resource('http://localhost:3000/timesheets');
+    var Department = $resource('http://localhost:3000/departments');
     
-    var timesheets = Timesheet.query(function () {
-        $scope.timesheets = timesheets;
+    var departments = Department.query(function () {
+        $scope.departments = departments;
     });
     
   });

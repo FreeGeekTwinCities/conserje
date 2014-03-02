@@ -8,7 +8,8 @@ angular.module('conserjeApp', [
   'ui.bootstrap',
   'ui.select2',
   'ui.mask',
-  'ui.validate'
+  'ui.validate',
+  'ngGrid'
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -16,17 +17,17 @@ angular.module('conserjeApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/volunteer-list', {
+      .when('/volunteers', {
         templateUrl: 'views/volunteer-list.html',
         controller: 'VolunteerListCtrl'
       })
-      .when('/volunteer-timesheets', {
-        templateUrl: 'views/volunteer-timesheets.html',
-        controller: 'VolunteerTimesheetsCtrl'
-      })
-      .when('/new-volunteer', {
+      .when('/volunteer/new', {
         templateUrl: 'views/new-volunteer.html',
         controller: 'NewVolunteerCtrl'
+      })
+      .when('/volunteer/:volunteerId', {
+        templateUrl: 'views/volunteer-timesheets.html',
+        controller: 'VolunteerTimesheetsCtrl'
       })
       .otherwise({
         redirectTo: '/'
