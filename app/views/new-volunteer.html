@@ -5,8 +5,10 @@
 <form ng-submit="processForm()">
     <!-- NAME -->
     <div id="name-group" class="form-group">
-        <label>Volunteer's Full Name</label>
-        <input type="text" name="volunteerName" class="form-control" placeholder="Buster Bot" ng-model="formData.name" required>
+        <label>First Name</label>
+        <input type="text" name="volunteerFirstName" class="form-control" placeholder="Buster" ng-model="formData.firstName" required>
+        <label>Last Name</label>
+        <input type="text" name="volunteerLastName" class="form-control" placeholder="Bot" ng-model="formData.lastName" required>
         <span class="help-block"></span>
     </div>
 
