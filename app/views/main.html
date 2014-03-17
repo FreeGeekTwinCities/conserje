@@ -1,13 +1,4 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#/volunteer/new">New Volunteer</a></li>
-    <li><a ng-href="#/volunteers">All Volunteers</a></li>
-  </ul>
-  <img style="float:left;" width="48px" src="images/fgtc-logo.png"><h3 class="text-muted">conserje</h3>
-</div>
-
-<div class="row">
+<div id="sign-in">
     <h2>Welcome to Free Geek Twin Cities!</h2>
     Please sign in...
   <select ui-select2 ng-model="select2" data-placeholder="Your Name Here" style="width:40%;">
@@ -22,11 +13,7 @@
 
 <hr>
 
-<div class="row">
+<div id="current-volunteers">
   <h3>Currently Volunteering</h2>
   <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers">{{volunteer.name}}</div>
-</div>
-
-<div class="footer">
-  <p>Made by <a href="http://github.com/bdunnette" target="_blank">bdunnette</a>, with thanks to <a href="http://github.com/githagman" target="_blank">githagman</a> and <a href="http://github.com/zzolo" target="_blank">zzolo</a></p>
 </div>

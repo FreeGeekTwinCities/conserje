@@ -32,4 +32,11 @@ angular.module('conserjeApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function($rootScope, $resource) {
+    var Company = $resource('http://localhost:3000/companies');
+    
+    var companies = Company.query(function () {
+        $rootScope.company = companies[0];
+    });
   });
