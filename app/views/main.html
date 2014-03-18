@@ -1,19 +1,21 @@
 <div id="sign-in">
     <h2>Welcome to Free Geek Twin Cities!</h2>
     Please sign in...
-  <select ui-select2 ng-model="select2" data-placeholder="Your Name Here" style="width:40%;">
-      <option ng-repeat="volunteer in volunteers" value="{{volunteer.id}}">{{volunteer.name}}</option>
+  <form ng-submit="processForm()">
+  <select ui-select2 ng-model="formData.employeeId" data-placeholder="Your Name Here" style="width:40%;">
+    <option ng-repeat="volunteer in volunteers | filter:{state:'absent'}" value="{{volunteer.id}}">{{volunteer.id}}: {{volunteer.name}}</option>
     </select>
   <h3>What will you be working on?</h3>
   <div class="btn-group">
-    <button type="button" class="btn btn-primary" name="department" btn-radio="'{{department.id}}'" ng-repeat="department in departments">{{department.name}}</button>
+    <button type="button" class="btn btn-primary" name="department" btn-radio="'{{department.id}}'" ng-repeat="department in departments" ng-model="formData.departmentId">{{department.name}}</button>
   </div>
-  <button ng-click="signIn()">Sign In</button>
+  <button type="submit">Sign In</button>
+  </form>
 </div>
 
 <hr>
 
 <div id="current-volunteers">
-  <h3>Currently Volunteering</h2>
-  <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers">{{volunteer.name}}</div>
+  <h3>Currently Volunteering</h3>
+  <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers | filter:{state:'present'}"><img src="data:image/png;base64,{{ volunteer.image_small }}">{{volunteer.name}}</div>
 </div>

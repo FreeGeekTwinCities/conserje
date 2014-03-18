@@ -14,4 +14,16 @@ angular.module('conserjeApp')
         $scope.departments = departments;
     });
     
+    $scope.processForm = function () {
+      var SignIn = $resource('http://localhost:3000/employees/sign_in');
+      var newSignIn = new SignIn($scope.formData);
+      newSignIn.$save(function(newSignIn, data) {
+          $scope.formData = {};
+          var volunteers = Volunteer.query(function () {
+            $scope.volunteers = volunteers;
+          });
+    
+      });
+    };
+    
   });
