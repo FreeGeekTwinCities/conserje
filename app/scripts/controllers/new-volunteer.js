@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('conserjeApp')
-  .controller('NewVolunteerCtrl', function ($scope, $resource) {
+  .controller('NewVolunteerCtrl', function ($scope, $resource, $rootScope) {
     $scope.formData = {};
     $scope.alerts = [];
     var Volunteer = $resource('http://localhost:3000/employees/:volunteerId');

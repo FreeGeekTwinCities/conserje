@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('conserjeApp')
-  .controller('VolunteerTimesheetsCtrl', function ($scope, $resource, $filter, $routeParams) {
+  .controller('VolunteerTimesheetsCtrl', function ($scope, $resource, $filter, $routeParams, $rootScope) {
     var Timesheet = $resource('http://localhost:3000/timesheets');
     
     var timesheets = Timesheet.query(function () {
