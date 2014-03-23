@@ -17,5 +17,5 @@
 
 <div id="current-volunteers">
   <h3>Currently Volunteering</h3>
-  <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers | filter:{state:'present'}"><img src="data:image/png;base64,{{ volunteer.image_small }}">{{volunteer.name}}</div>
+  <div class="volunteer col-md-4" ng-repeat="volunteer in volunteers | filter:{state:'present'}"><img src="data:image/png;base64,{{ volunteer.image_small }}">{{volunteer.name}} <a class="btn btn-xs btn-info" ng-href="#/volunteer/{{volunteer.id}}"><span class="glyphicon glyphicon-time"> </span> My Hours</a> <button class="btn btn-xs btn-warning" ng-click="signOut(volunteer.id)"><span class="glyphicon glyphicon-log-out"></span> Sign Out</button></div>
 </div>

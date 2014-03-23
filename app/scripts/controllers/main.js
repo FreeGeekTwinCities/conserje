@@ -26,4 +26,17 @@ angular.module('conserjeApp')
       });
     };
     
+    $scope.signOut = function (volunteerId) {
+      console.log(volunteerId);
+      var SignOut = $resource('http://localhost:3000/employees/sign_out');
+      var newSignOut = new SignOut({'employeeId': volunteerId});
+      newSignOut.$save(function(newSignOut, data) {
+          console.log(data);
+          var volunteers = Volunteer.query(function () {
+            $scope.volunteers = volunteers;
+          });
+    
+      });
+    };
+    
   });
