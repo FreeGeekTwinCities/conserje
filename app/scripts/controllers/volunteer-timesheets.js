@@ -13,16 +13,19 @@ angular.module('conserjeApp')
       
     console.log($scope.volunteer);
     
-    var Timesheet = $resource('http://localhost:3000/timesheets');
+    var Timesheet = $resource('http://localhost:3000/employees/:volunteerId/attendance');
     
-    var timesheets = Timesheet.query(function () {
-        $scope.timesheets = timesheets;
+    var timesheets = Timesheet.get({volunteerId:$scope.volunteerId}, function () {
+        console.log(timesheets);
+        $scope.timesheets = timesheets.timesheets;
+        angular.forEach($scope.timesheets, function(value, key){
+            console.log(value.total_attendance);
+        });
     });
     
     $scope.gridOptions = { 
       data: 'timesheets',
-      filterOptions: { filterText: 'employee_id:' + $scope.volunteerId },
       sortInfo: { fields: ['date_from'], directions: ['desc']},
-      columnDefs: [{field:'date_from', displayName:'Date'}, {field:'total_attendance|number:2', displayName:'Hours Worked'}, {field:'employee_id', displayName:'id'}]
+      columnDefs: [{field:'date_from', displayName:'Date'}, {field:'total_attendance|number:2', displayName:'Hours Worked'}, {field:'department_id[1]', displayName:'Work Area'}]
     };
   });
