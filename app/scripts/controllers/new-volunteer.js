@@ -16,7 +16,10 @@ angular.module('conserjeApp')
           console.log(newVolunteer);
           console.log($rootScope.company);
           $scope.formData = {};
-          $scope.alerts.push({type: 'success', msg: "Welcome to " + $rootScope.company.name + ", " + newVolunteer.name + "! You are volunteer #" + newVolunteer.id + "."});
+          $scope.alerts.push({
+              type: 'success', 
+              msg: "<p>Welcome to " + $rootScope.company.name + ", " + newVolunteer.name + "! You are volunteer #" + newVolunteer.id + ".</p><p>Would you like to <a href=#>Sign In</a>?</p>"
+          });
         });
         
     };

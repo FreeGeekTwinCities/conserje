@@ -1,4 +1,4 @@
-<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)" ng-bind-html="alert.msg"></alert>
 
 <!-- form code based on http://scotch.io/tutorials/javascript/submitting-ajax-forms-the-angularjs-way -->
 <!-- FORM -->
