@@ -9,7 +9,8 @@ angular.module('conserjeApp', [
   'ui.select2',
   'ui.mask',
   'ui.validate',
-  'ngGrid'
+  'ngGrid',
+  'webcam'
 ])
   .config(function ($routeProvider) {
     $routeProvider
