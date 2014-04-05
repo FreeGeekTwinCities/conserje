@@ -1,15 +1,15 @@
 <div id="sign-in">
-  <h2>Welcome to {{company.name}}!</h2>
-    Please sign in...
+  <h3>To sign in as a volunteer...</h3>
   <form ng-submit="processForm()">
-  <select ui-select2 ng-model="formData.employeeId" data-placeholder="Your Name Here" style="width:40%;">
+  
+   <h4>Select your name:</h4><select ui-select2 ng-model="formData.employeeId" data-placeholder="Your Name Here" style="width:40%;" required>
     <option ng-repeat="volunteer in volunteers | filter:{state:'absent'}" value="{{volunteer.id}}">{{volunteer.id}}: {{volunteer.name}}</option>
     </select>
-  <h3>What will you be working on?</h3>
+  <h4>What will you be working on?</h4>
   <div class="btn-group">
     <button type="button" class="btn btn-primary" name="department" btn-radio="'{{department.id}}'" ng-repeat="department in departments" ng-model="formData.departmentId">{{department.name}}</button>
-  </div>
-  <button type="submit">Sign In</button>
+    </div>
+    <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-log-in"></span> Sign In</button>
   </form>
 </div>
 
