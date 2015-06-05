@@ -14,7 +14,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
-    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" />
+    <link rel="stylesheet" href="bower_components/ng-grid/ng-grid.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -26,25 +26,33 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container">
-    <div class="header">
-      <ul class="nav nav-pills pull-right">
+    <div class="navbar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-href="#">
+          <img style="width: 250px;" ng-src="data:image/png;base64,{{ company.logo }}">
+        </a>
+      </div>
+      <!-- <ul class="nav navbar-nav navbar-right">
         <li class="active"><a ng-href="#">Home</a></li>
         <li><a ng-href="#/volunteer/new">New Volunteer</a></li>
         <li><a ng-href="#/volunteers">All Volunteers</a></li>
-      </ul>
-      <img style="float:left;" width="48px" ng-src="data:image/png;base64,{{ company.logo }}"><h3 class="text-muted">{{company.name}}</h3>
+      </ul> -->
     </div>
-
-
     <!-- Add your site or application content here -->
     <div class="row" ng-view=""></div>
 
-    
+
     <div class="footer">
       <p>Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://github.com/freegeektwincities" target=_blank>Free Geek Twin Cities</a></p>
     </div>
-    
-      
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,7 +82,7 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-select2/src/select2.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
-    <script src="bower_components/ng-grid/build/ng-grid.min.js"></script>
+    <script src="bower_components/ng-grid/build/ng-grid.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/webcam-directive/app/scripts/webcam.js"></script>
@@ -85,15 +93,14 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/volunteer.js"></script>
-        <script src="scripts/controllers/volunteer.js"></script>
-        <script src="scripts/controllers/timesheet.js"></script>
-        <script src="scripts/controllers/newVolunteer.js"></script>
         <script src="scripts/controllers/volunteer-list.js"></script>
         <script src="scripts/controllers/volunteer-timesheets.js"></script>
         <script src="scripts/controllers/new-volunteer.js"></script>
-        <script src="scripts/services/Volunteer.js"></script>
-        <script src="scripts/services/ApiConfig.js"></script>
+        <script src="scripts/controllers/signin.js"></script>
+        <script src="scripts/controllers/signout.js"></script>
         <script src="scripts/services/config.js"></script>
+        <script src="scripts/services/apiconfig.js"></script>
+        <script src="scripts/services/departments.js"></script>
         <!-- endbuild -->
 </body>
 </html>
