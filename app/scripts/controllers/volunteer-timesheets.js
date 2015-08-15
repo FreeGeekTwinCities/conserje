@@ -14,15 +14,23 @@ function VolunteerTimesheetsControllerBlock($scope, $resource, $filter, $routePa
 
   var Timesheet = $resource('http://' + config.api.host + ':' + config.api.port + '/employees/:volunteerId/attendance');
 
+  $scope.total_time_display = "No time entered yet!";
+  $scope.total_min = 0;
   var timesheets = Timesheet.get({volunteerId:$scope.volunteerId}, function () {
       $scope.timesheets = timesheets.timesheets;
       $.each($scope.timesheets, function(index, timesheet) {
-        var hours = Math.floor(timesheet.total_attendance / 60) > 0 ? Math.floor(timesheet.total_attendance / 60) + ' hr(s) ' : '';
-        var mins = Math.round(timesheet.total_attendance % 60) + ' mins';
-        timesheet.total_attendance = hours + mins;
+        $scope.total_min += timesheet.total_attendance;
+        timesheet.total_attendance = calcTime(timesheet.total_attendance);
         $scope.timesheets[$scope.timesheets.indexOf(timesheet)] = timesheet;
       });
+      $scope.total_time_display = calcTime($scope.total_min);
   });
+
+  function calcTime(total_attendance) {
+    var hours = Math.floor(total_attendance / 60) > 0 ? Math.floor(total_attendance / 60) + ' hr(s) ' : '';
+    var mins = Math.round(total_attendance % 60) + ' mins';
+    return hours + mins;
+  }
 
   $scope.gridOptions = {
     data: 'timesheets',
