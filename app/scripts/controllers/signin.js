@@ -2,8 +2,8 @@
 
 angular.module('conserjeApp').controller('SignInCtrl', SignInController);
 
-SignInController.$inject = ['$scope', '$rootScope', '$resource', '$timeout', '$modal', 'Volunteer', 'Department'];
-function SignInController($scope, $rootScope, $resource, $timeout, $modal, Volunteer, Department) {
+SignInController.$inject = ['$scope', '$rootScope', '$resource', '$timeout', '$modal', 'Volunteer', 'Department', 'config'];
+function SignInController($scope, $rootScope, $resource, $timeout, $modal, Volunteer, Department, config) {
   var volunteers = Volunteer.query(function () {
       $scope.volunteers = volunteers;
   });
@@ -13,7 +13,7 @@ function SignInController($scope, $rootScope, $resource, $timeout, $modal, Volun
   });
 
   $scope.processForm = function () {
-    var SignIn = $resource('http://localhost:3000/employees/sign_in');
+    var SignIn = $resource('http://' + config.api.host + ':' + config.api.port + '/employees/sign_in');
     var newSignIn = new SignIn($scope.formData);
     newSignIn.$save(function(newSignIn, data) {
         $scope.formData = {};

@@ -15,9 +15,9 @@ var conserje = angular.module('conserjeApp', [
 conserje.config(ConfigBlock);
 conserje.run(RunBlock);
 
-RunBlock.$inject = ['$rootScope', '$resource'];
-function RunBlock($rootScope, $resource) {
-  var Company = $resource('http://localhost:3000/companies');
+RunBlock.$inject = ['$rootScope', '$resource', 'config'];
+function RunBlock($rootScope, $resource, config) {
+  var Company = $resource('http://' + config.api.host + ':' + config.api.port + '/companies');
 
   var companies = Company.query(function () {
       $rootScope.company = companies[0];

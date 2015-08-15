@@ -4,8 +4,8 @@ var conserje = angular.module('conserjeApp');
 
 conserje.controller('NewVolunteerCtrl', NewVolunteerControllerBlock);
 
-NewVolunteerControllerBlock.$inject = ['$scope', '$resource', '$rootScope', '$location'];
-function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location) {
+NewVolunteerControllerBlock.$inject = ['$scope', '$resource', '$rootScope', '$location', 'config'];
+function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location, config) {
   $scope.formData = {};
   $scope.alerts = [];
 
@@ -13,7 +13,7 @@ function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location) {
     $location.path(path);
   };
 
-  var Volunteer = $resource('http://localhost:3000/employees/:volunteerId');
+  var Volunteer = $resource('http://' + config.api.host + ':' + config.api.port + ':3000/employees/:volunteerId');
 
   var volunteers = Volunteer.query(function () {
       $scope.volunteers = volunteers;
