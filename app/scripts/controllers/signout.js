@@ -25,16 +25,16 @@ function SignOutController($scope, $rootScope, $resource, $timeout, Volunteer, D
           template   : "<div class='modal-header'><h1>Thank you for coming!</h1></div>" +
                        "<div class='modal-body'><h3>Total Hours : <span ng-if='hours > 0'>{{hours}} hrs</span> {{minutes}} min</h3>" +
                        "<!-- <h3>Today's Hours : <span ng-if='hours > 0'>{{hours}} hrs</span> {{minutes}} min</h3>--!></div>",
-          controller : function($scope, $modalInstance, selectedId, timesheets) {
+          controller : ['$scope', '$modalInstance', 'selectedId', 'timesheets', function($scope, $modalInstance, selectedId, timesheets) {
             $scope.selectedId = selectedId;
             var totalMin = 0;
             for (var i = 0; i < timesheets.timesheets.length; i++) {
               var attendance = timesheets.timesheets[i].total_attendance;
               totalMin += timesheets.timesheets[i].total_attendance;
             }
-            $scope.hours = Math.floor(totalMin / 60);
-            $scope.minutes = Math.ceil(totalMin % 60);
-          },
+            $scope.hours = Math.floor(totalMin);
+            $scope.minutes = Math.round((totalMin - Math.floor(totalMin)) * 60);
+          }],
           resolve    : {
             selectedId : function() {
               return volunteerId;

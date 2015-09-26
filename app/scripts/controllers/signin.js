@@ -24,7 +24,7 @@ function SignInController($scope, $rootScope, $resource, $timeout, $modal, Volun
           size       : 'lg',
           template   : "<div class='modal-header'><h1>You're In!</h1></div>" +
                        "<div class='modal-body'>Time to <h2>Geek Out</h2></div>",
-          controller : function($scope, $modalInstance) {},
+          controller : ['$scope', '$modalInstance', function($scope, $modalInstance) {}],
         });
 
         $timeout(function() {

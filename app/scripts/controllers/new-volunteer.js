@@ -13,7 +13,7 @@ function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location, c
     $location.path(path);
   };
 
-  var Volunteer = $resource('http://' + config.api.host + ':' + config.api.port + ':3000/employees/:volunteerId');
+  var Volunteer = $resource('http://' + config.api.host + ':' + config.api.port + '/employees/:volunteerId');
 
   var volunteers = Volunteer.query(function () {
       $scope.volunteers = volunteers;
