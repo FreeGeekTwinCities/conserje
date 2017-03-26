@@ -24,13 +24,24 @@
         <input type="tel" name="volunteerPhone" class="form-control" ui-mask="{{'(999) 999-9999'}}" ng-model="formData.phone">
         <span class="help-block"></span>
     </div>
-    
+    <div id="agreement-group" class="form-group">
+        <label>Volunteer Agreement</label>
+        <button class="btn btn-error btn-lg btn-block">
+          Click Here to Review the Volunteer Agreement
+        </button>
+        <input type="checkbox"
+               name="volunteerAgreement"
+               class="form-control"
+               ng-model="formData.volunteerAgreement">
+        <span class="help-block"></span>
+    </div>
+
     <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block">
+    <button type="submit"
+            class="btn btn-success btn-lg btn-block">
         <span class="glyphicon glyphicon-ok-circle"></span> Sign Up
     </button>
 </form>
 
 <!--<webcam on-streaming="onSuccess(video)"></webcam><canvas id="snapshot"></canvas>
   <button class="btn btn-primary" ng-click="makeSnapshot()">Take My Picture</button>-->
-  

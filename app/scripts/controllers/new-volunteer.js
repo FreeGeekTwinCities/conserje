@@ -19,7 +19,19 @@ function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location, c
       $scope.volunteers = volunteers;
   });
 
+  var agreementCheck = function() {
+    if ($scope.formData.volunteerAgreement) {
+      return true;
+    } else {
+      $scope.alerts.push({
+          type: 'error',
+          msg: "<p>Please review our volunteer agreement to continue.</p>"
+      });
+      return false;
+    }
+  }
   $scope.processForm = function () {
+    if (agreementCheck()) {
       var newVolunteer = new Volunteer($scope.formData);
       newVolunteer.$save(function(newVolunteer, company, data) {
         $scope.formData = {};
@@ -29,7 +41,7 @@ function NewVolunteerControllerBlock($scope, $resource, $rootScope, $location, c
         });
         $scope.go("/");
       });
-
+    }
   };
 
   $scope.closeAlert = function(index) {
